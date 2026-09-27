@@ -1,536 +1,879 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Birthday Abdullah 🎂</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+<title>Abdullah's Birthday 🎂</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap');
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    min-height:100vh;
+    overflow:hidden;
+    font-family:'DM Sans',sans-serif;
+    color:#fff;
+    background:
+        radial-gradient(circle at 20% 20%,rgba(255,255,255,.08),transparent 30%),
+        radial-gradient(circle at 80% 80%,rgba(255,255,255,.07),transparent 30%),
+        linear-gradient(135deg,#080b1c,#111936,#080b1c);
+}
+
+/* ================= BACKGROUND ================= */
+
+.stars{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+}
+
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:#fff;
+    border-radius:50%;
+    opacity:.7;
+    animation:twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle{
+    from{opacity:.2;transform:scale(.7);}
+    to{opacity:1;transform:scale(1.4);}
+}
+
+/* ================= MAIN ================= */
+
+.wrapper{
+    width:100%;
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.page{
+    display:none;
+    width:100%;
+    max-width:520px;
+    text-align:center;
+    animation:pageIn .65s ease;
+}
+
+.page.active{
+    display:block;
+}
+
+@keyframes pageIn{
+    from{
+        opacity:0;
+        transform:translateY(20px) scale(.97);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+.card{
+    position:relative;
+    padding:45px 25px 30px;
+    border-radius:28px;
+    background:rgba(255,255,255,.055);
+    border:1px solid rgba(255,255,255,.13);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.45),
+        inset 0 1px 0 rgba(255,255,255,.08);
+}
+
+/* ================= TEXT ================= */
+
+.intro{
+    font-size:14px;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    color:#aebcff;
+    margin-bottom:20px;
+}
+
+h1{
+    font-family:'Playfair Display',serif;
+    font-size:42px;
+    line-height:1.15;
+    margin-bottom:18px;
+}
+
+h2{
+    font-family:'Playfair Display',serif;
+    font-size:30px;
+    margin-bottom:20px;
+}
+
+p{
+    font-size:17px;
+    line-height:1.75;
+    color:#e6e8f4;
+    margin-bottom:22px;
+}
+
+.name{
+    background:linear-gradient(90deg,#fff,#b9c8ff,#fff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.gold{
+    color:#e5c77a;
+}
+
+.late{
+    font-size:15px;
+    color:#aeb7d5;
+    font-style:italic;
+}
+
+/* ================= BUTTONS ================= */
+
+.start-btn,
+.next-btn,
+.yes-btn{
+    border:none;
+    outline:none;
+    padding:14px 32px;
+    border-radius:50px;
+    color:#101426;
+    background:#fff;
+    font-family:'DM Sans',sans-serif;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+    transition:.25s;
+}
+
+.start-btn:hover,
+.next-btn:hover,
+.yes-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 15px 35px rgba(0,0,0,.35);
+}
+
+.start-btn:active,
+.next-btn:active,
+.yes-btn:active{
+    transform:scale(.95);
+}
+
+.yes-btn{
+    background:#dce5ff;
+}
+
+.prev-btn{
+    border:none;
+    background:transparent;
+    color:#9da7c5;
+    font-size:14px;
+    cursor:pointer;
+}
+
+/* ================= NAVIGATION ================= */
+
+.navigation{
+    margin-top:32px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+}
+
+.page-number{
+    font-size:12px;
+    color:#77809f;
+}
+
+/* ================= CAKE ================= */
+
+.cake{
+    font-size:65px;
+    margin-bottom:18px;
+    animation:cakeFloat 2s ease-in-out infinite;
+}
+
+@keyframes cakeFloat{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-8px);}
+}
+
+/* ================= THOKO ================= */
+
+.question{
+    font-size:17px;
+    line-height:1.8;
+    color:#eceef8;
+}
+
+.question b{
+    color:#fff;
+}
+
+.choice-area{
+    position:relative;
+    width:100%;
+    height:95px;
+    margin-top:20px;
+}
+
+#yesButton{
+    position:absolute;
+    left:50%;
+    top:20px;
+    transform:translateX(-50%);
+}
+
+#noButton{
+    position:fixed;
+    z-index:1000;
+    padding:12px 25px;
+    border:none;
+    border-radius:50px;
+    background:#262b40;
+    color:#fff;
+    font-family:'DM Sans',sans-serif;
+    font-size:15px;
+    font-weight:700;
+    cursor:pointer;
+    box-shadow:0 8px 25px rgba(0,0,0,.35);
+    transition:left .18s ease,top .18s ease;
+    display:none;
+}
+
+/* ================= FINAL ================= */
+
+.coder{
+    font-family:'Playfair Display',serif;
+    font-size:34px;
+    line-height:1.35;
+    margin:20px 0;
+}
+
+.coder span{
+    color:#b9c8ff;
+}
+
+.signature{
+    color:#7e88a8;
+    font-size:13px;
+    letter-spacing:2px;
+}
+
+/* ================= FIREWORKS ================= */
+
+.firework{
+    position:fixed;
+    width:5px;
+    height:5px;
+    border-radius:50%;
+    pointer-events:none;
+    z-index:2000;
+}
+
+.spark{
+    position:absolute;
+    width:4px;
+    height:4px;
+    border-radius:50%;
+    background:#fff;
+    animation:explode 1.1s ease-out forwards;
+}
+
+@keyframes explode{
+    0%{
+        transform:translate(0,0) scale(1);
+        opacity:1;
+    }
+    100%{
+        transform:translate(var(--x),var(--y)) scale(.2);
+        opacity:0;
+    }
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:480px){
+
+    .wrapper{
+        padding:16px;
     }
 
-    body {
-      min-height: 100vh;
-      font-family: Arial, sans-serif;
-      overflow: hidden;
-      background: linear-gradient(135deg, #ff758c, #ff7eb3, #8e7dff);
-      color: white;
+    .card{
+        padding:38px 19px 27px;
+        border-radius:25px;
     }
 
-    /* Background hearts */
-    .heart {
-      position: fixed;
-      bottom: -30px;
-      font-size: 20px;
-      animation: floatUp 7s linear infinite;
-      opacity: 0.7;
-      pointer-events: none;
+    h1{
+        font-size:34px;
     }
 
-    @keyframes floatUp {
-      0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0;
-      }
-      20% {
-        opacity: 0.8;
-      }
-      100% {
-        transform: translateY(-110vh) rotate(360deg);
-        opacity: 0;
-      }
+    h2{
+        font-size:26px;
     }
 
-    .container {
-      width: 100%;
-      max-width: 500px;
-      height: 100vh;
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
+    p,
+    .question{
+        font-size:16px;
     }
 
-    .page {
-      display: none;
-      width: 100%;
-      text-align: center;
-      animation: fadeIn 0.5s ease;
+    .coder{
+        font-size:29px;
     }
 
-    .page.active {
-      display: block;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(15px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .card {
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 25px;
-      padding: 35px 22px;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
-    }
-
-    .emoji {
-      font-size: 65px;
-      margin-bottom: 20px;
-    }
-
-    h1 {
-      font-size: 32px;
-      margin-bottom: 18px;
-      line-height: 1.25;
-    }
-
-    h2 {
-      font-size: 26px;
-      margin-bottom: 18px;
-    }
-
-    p {
-      font-size: 18px;
-      line-height: 1.6;
-      margin-bottom: 25px;
-    }
-
-    .birthday-name {
-      color: #fff;
-      text-shadow: 0 0 15px rgba(255,255,255,0.7);
-    }
-
-    .buttons {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 15px;
-      min-height: 65px;
-      margin-top: 15px;
-    }
-
-    button {
-      border: none;
-      padding: 13px 25px;
-      border-radius: 30px;
-      font-size: 17px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      -webkit-tap-highlight-color: transparent;
-    }
-
+    .start-btn,
     .next-btn,
-    .yes-btn {
-      background: white;
-      color: #e94f78;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    .yes-btn{
+        padding:13px 28px;
     }
-
-    .next-btn:hover,
-    .yes-btn:hover {
-      transform: scale(1.06);
-    }
-
-    .prev-btn {
-      background: rgba(0, 0, 0, 0.25);
-      color: white;
-    }
-
-    .no-btn {
-      background: #333;
-      color: white;
-      position: relative;
-      z-index: 10;
-    }
-
-    .navigation {
-      margin-top: 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .page-number {
-      font-size: 14px;
-      opacity: 0.8;
-    }
-
-    .small-text {
-      font-size: 14px;
-      opacity: 0.8;
-      margin-top: 20px;
-    }
-
-    .made-by {
-      font-size: 35px;
-      font-weight: bold;
-      margin-top: 20px;
-      text-shadow: 0 0 20px rgba(255,255,255,0.6);
-    }
-
-    .cake {
-      font-size: 75px;
-      animation: bounce 1.5s infinite;
-    }
-
-    @keyframes bounce {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
-    }
-
-    @media (max-width: 480px) {
-      .card {
-        padding: 30px 18px;
-      }
-
-      h1 {
-        font-size: 28px;
-      }
-
-      h2 {
-        font-size: 23px;
-      }
-
-      p {
-        font-size: 16px;
-      }
-
-      button {
-        font-size: 15px;
-        padding: 12px 21px;
-      }
-    }
-  </style>
+}
+</style>
 </head>
 
 <body>
 
-  <!-- Floating hearts -->
-  <div class="heart" style="left:8%; animation-delay:0s;">❤️</div>
-  <div class="heart" style="left:25%; animation-delay:2s;">💖</div>
-  <div class="heart" style="left:45%; animation-delay:4s;">💕</div>
-  <div class="heart" style="left:65%; animation-delay:1s;">💗</div>
-  <div class="heart" style="left:85%; animation-delay:3s;">❤️</div>
-
-  <div class="container">
-
-    <!-- PAGE 1 -->
-    <section class="page active" id="page1">
-      <div class="card">
-        <div class="emoji">🎁</div>
-
-        <h1>Thanks for opening this link ❤️</h1>
-
-        <p>
-          I have something special waiting for you...
-          <br>
-          Are you ready? 👀
-        </p>
-
-        <button class="next-btn" onclick="nextPage()">
-          Next Page ➜
-        </button>
-
-        <div class="navigation">
-          <span></span>
-          <span class="page-number">1 / 5</span>
-        </div>
-      </div>
-    </section>
+<!-- STARS -->
+<div class="stars" id="stars"></div>
 
 
-    <!-- PAGE 2 -->
-    <section class="page" id="page2">
-      <div class="card">
+<div class="wrapper">
 
-        <div class="cake">🎂</div>
+<!-- ================= PAGE 1 ================= -->
 
-        <h1 class="birthday-name">
-          Abdullah
-        </h1>
+<section class="page active" id="page1">
 
-        <h2>
-          Happy Birthday to You! 🎉
-        </h2>
+<div class="card">
 
-        <p>
-          May your special day be filled with
-          happiness, smiles and lots of good memories. ❤️
-        </p>
+<div class="intro">A little something for you</div>
 
-        <div class="navigation">
-          <button class="prev-btn" onclick="prevPage()">
-            ← Previous
-          </button>
+<h1>
+Before you leave...
+</h1>
 
-          <span class="page-number">2 / 5</span>
+<p>
+There's a small surprise waiting here.
+<br>
+You just have to start. ✨
+</p>
 
-          <button class="next-btn" onclick="nextPage()">
-            Next ➜
-          </button>
-        </div>
+<button class="start-btn" onclick="startBirthday()">
+START ✨
+</button>
 
-      </div>
-    </section>
+</div>
+
+</section>
 
 
-    <!-- PAGE 3 -->
-    <section class="page" id="page3">
-      <div class="card">
+<!-- ================= PAGE 2 ================= -->
 
-        <div class="emoji">👀😂</div>
+<section class="page" id="page2">
 
-        <h2>
-          Ek important sawaal...
-        </h2>
+<div class="card">
 
-        <p>
-          Umeed hai tum theek hoge...
-          <br><br>
+<div class="cake">🎂</div>
 
-          Aur tumhara <b>thoko</b> bhi... 😂
-          <br><br>
+<h1>
+<span class="name">Abdullah</span>
+</h1>
 
-          Mujhe ye nahi pata ke tum
-          <b>Salman ke thoko</b> ho
-          ya <b>Salman tumhara thoko</b> hai. 😭
-          <br><br>
+<h2>
+Happy Birthday to You! 🎉
+</h2>
 
-          Agar tum isko galat sabit karna chahte ho
-          ke tum dono mein se koi bhi <b>thoko</b> nahi hai,
-          to neeche <b>NO</b> pe click karo. 👀
-        </p>
+<p>
+May your life always be filled with
+happiness, peace, success and
+beautiful memories.
+</p>
 
-        <div class="buttons">
-          <button class="yes-btn" onclick="nextPage()">
-            YES 😂
-          </button>
+<p class="late">
+And yes... sorry for wishing you late. 😭
+</p>
 
-          <button class="no-btn" id="noButton">
-            NO 😭
-          </button>
-        </div>
+<div class="navigation">
 
-        <div class="navigation">
-          <button class="prev-btn" onclick="prevPage()">
-            ← Previous
-          </button>
+<button class="prev-btn" onclick="prevPage()">
+← Previous
+</button>
 
-          <span class="page-number">3 / 5</span>
+<span class="page-number">2 / 5</span>
 
-          <button class="next-btn" onclick="nextPage()">
-            Next ➜
-          </button>
-        </div>
+<button class="next-btn" onclick="nextPage()">
+Next →
+</button>
 
-      </div>
-    </section>
+</div>
+
+</div>
+
+</section>
 
 
-    <!-- PAGE 4 -->
-    <section class="page" id="page4">
-      <div class="card">
+<!-- ================= PAGE 3 ================= -->
 
-        <div class="emoji">😂🤦‍♂️</div>
+<section class="page" id="page3">
 
-        <h1>
-          Haan mujhe pata tha! 😭
-        </h1>
+<div class="card">
 
-        <p>
-          Tum dono mein se koi na koi
-          kisi ek ka <b>thoko</b> hai. 😂
-          <br><br>
-          Mujhe bewakoof samjha tha kya? 👀
-        </p>
+<div class="intro">One serious question...</div>
 
-        <div class="navigation">
-          <button class="prev-btn" onclick="prevPage()">
-            ← Previous
-          </button>
+<h2>
+Abdullah, answer honestly 👀
+</h2>
 
-          <span class="page-number">4 / 5</span>
+<p class="question">
 
-          <button class="next-btn" onclick="nextPage()">
-            Next ➜
-          </button>
-        </div>
+Umeed hai tum theek hoge...
+<br><br>
 
-      </div>
-    </section>
+Aur tumhara <b>thoko</b> bhi. 😂
+<br><br>
 
+Mujhe ye nahi pata ke tum
+<b>Salman ke thoko</b> ho
+ya <b>Salman tumhara thoko</b> hai. 😭
+<br><br>
 
-    <!-- PAGE 5 -->
-    <section class="page" id="page5">
-      <div class="card">
+Agar tum ye sabit karna chahte ho
+ke tum dono mein se koi bhi
+<b>thokoo nahi</b>...
+<br><br>
 
-        <div class="emoji">💙✨</div>
+<span class="gold">
+Agar dum hai to NO par click karke dikhao. 😭😂
+</span>
 
-        <h1>
-          That's all for now! 🎉
-        </h1>
+</p>
 
-        <div class="made-by">
-          Made by Husna
-        </div>
+<div class="choice-area">
 
-        <p class="small-text">
-          ❤️ Birthday Special ❤️
-        </p>
+<button class="yes-btn" id="yesButton" onclick="nextPage()">
+YES 😂
+</button>
 
-        <div class="navigation">
-          <button class="prev-btn" onclick="prevPage()">
-            ← Previous
-          </button>
+</div>
 
-          <span class="page-number">5 / 5</span>
+<div class="navigation">
 
-          <span></span>
-        </div>
+<button class="prev-btn" onclick="prevPage()">
+← Previous
+</button>
 
-      </div>
-    </section>
+<span class="page-number">3 / 5</span>
 
-  </div>
+<button class="next-btn" onclick="nextPage()">
+Next →
+</button>
+
+</div>
+
+</div>
+
+</section>
 
 
-  <script>
-    let currentPage = 1;
-    const totalPages = 5;
+<!-- ================= PAGE 4 ================= -->
 
-    function showPage(pageNumber) {
+<section class="page" id="page4">
 
-      if (pageNumber < 1 || pageNumber > totalPages) {
-        return;
-      }
+<div class="card">
 
-      document.querySelectorAll(".page").forEach(page => {
+<div class="emoji" style="font-size:65px;margin-bottom:20px;">
+😭😂
+</div>
+
+<h2>
+Haan mujhe pata tha!
+</h2>
+
+<p>
+Tum dono mein se koi na koi
+kisi ek ka <b>thoko</b> hai. 😂
+<br><br>
+
+Mujhe pehle se hi pata tha. 👀
+</p>
+
+<div class="navigation">
+
+<button class="prev-btn" onclick="prevPage()">
+← Previous
+</button>
+
+<span class="page-number">4 / 5</span>
+
+<button class="next-btn" onclick="nextPage()">
+Next →
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= PAGE 5 ================= -->
+
+<section class="page" id="page5">
+
+<div class="card">
+
+<div class="intro">
+The End
+</div>
+
+<div class="coder">
+Made by<br>
+<span>Hussnain — The Coder</span>
+</div>
+
+<p>
+A small birthday project made with
+a little code and a lot of chaos. ✨
+</p>
+
+<div class="signature">
+HUSNAIN • 2026
+</div>
+
+<div class="navigation">
+
+<button class="prev-btn" onclick="prevPage()">
+← Previous
+</button>
+
+<span class="page-number">5 / 5</span>
+
+</div>
+
+</div>
+
+</section>
+
+</div>
+
+
+<!-- NO BUTTON -->
+<button id="noButton">
+NO 😭
+</button>
+
+
+<script>
+
+/* ================= STARS ================= */
+
+const stars = document.getElementById("stars");
+
+for(let i=0;i<80;i++){
+
+    const star=document.createElement("div");
+
+    star.className="star";
+
+    star.style.left=Math.random()*100+"%";
+    star.style.top=Math.random()*100+"%";
+    star.style.animationDelay=(Math.random()*3)+"s";
+
+    stars.appendChild(star);
+}
+
+
+/* ================= PAGES ================= */
+
+let currentPage=1;
+
+const totalPages=5;
+
+function showPage(number){
+
+    if(number<1 || number>totalPages) return;
+
+    document.querySelectorAll(".page").forEach(page=>{
         page.classList.remove("active");
-      });
+    });
 
-      document
-        .getElementById("page" + pageNumber)
+    document.getElementById("page"+number)
         .classList.add("active");
 
-      currentPage = pageNumber;
+    currentPage=number;
+
+    const no=document.getElementById("noButton");
+
+    if(number===3){
+
+        no.style.display="block";
+
+        setTimeout(()=>{
+            positionNoNearYes();
+        },100);
+
+    }else{
+
+        no.style.display="none";
+
+    }
+}
+
+
+function nextPage(){
+
+    if(currentPage<totalPages){
+
+        showPage(currentPage+1);
+
+    }
+}
+
+
+function prevPage(){
+
+    if(currentPage>1){
+
+        showPage(currentPage-1);
+
+    }
+}
+
+
+/* ================= START ================= */
+
+function startBirthday(){
+
+    showPage(2);
+
+    startFireworks();
+
+}
+
+
+/* ================= NO BUTTON ================= */
+
+const noButton=document.getElementById("noButton");
+
+
+function positionNoNearYes(){
+
+    const yes=document.getElementById("yesButton");
+
+    const rect=yes.getBoundingClientRect();
+
+    /*
+      NO button hamesha YES ke aas paas rahega.
+      Screen se bahar nahi jayega.
+    */
+
+    const gap=15;
+
+    let x;
+
+    if(Math.random()<0.5){
+
+        x=rect.left-noButton.offsetWidth-gap;
+
+    }else{
+
+        x=rect.right+gap;
+
     }
 
-    function nextPage() {
-      if (currentPage < totalPages) {
-        showPage(currentPage + 1);
-      }
+    let y=rect.top+Math.random()*35-10;
+
+
+    /* Keep inside screen */
+
+    x=Math.max(
+        10,
+        Math.min(
+            window.innerWidth-noButton.offsetWidth-10,
+            x
+        )
+    );
+
+    y=Math.max(
+        10,
+        Math.min(
+            window.innerHeight-noButton.offsetHeight-10,
+            y
+        )
+    );
+
+
+    noButton.style.left=x+"px";
+    noButton.style.top=y+"px";
+}
+
+
+/* Desktop */
+
+noButton.addEventListener("mouseenter",function(){
+
+    positionNoNearYes();
+
+});
+
+
+/* Mobile */
+
+noButton.addEventListener("touchstart",function(e){
+
+    e.preventDefault();
+
+    positionNoNearYes();
+
+},{passive:false});
+
+
+/* If somehow clicked */
+
+noButton.addEventListener("click",function(e){
+
+    e.preventDefault();
+
+    positionNoNearYes();
+
+});
+
+
+window.addEventListener("resize",function(){
+
+    if(currentPage===3){
+
+        positionNoNearYes();
+
     }
 
-    function prevPage() {
-      if (currentPage > 1) {
-        showPage(currentPage - 1);
-      }
+});
+
+
+/* ================= FIREWORKS ================= */
+
+function createFirework(x,y){
+
+    const firework=document.createElement("div");
+
+    firework.className="firework";
+
+    firework.style.left=x+"px";
+    firework.style.top=y+"px";
+
+    const colors=[
+        "#ffffff",
+        "#b9c8ff",
+        "#e5c77a",
+        "#ff8fab",
+        "#7df9ff"
+    ];
+
+    for(let i=0;i<28;i++){
+
+        const spark=document.createElement("div");
+
+        spark.className="spark";
+
+        const angle=
+            (Math.PI*2*i)/28;
+
+        const distance=
+            50+Math.random()*100;
+
+        spark.style.setProperty(
+            "--x",
+            Math.cos(angle)*distance+"px"
+        );
+
+        spark.style.setProperty(
+            "--y",
+            Math.sin(angle)*distance+"px"
+        );
+
+        spark.style.background=
+            colors[
+                Math.floor(Math.random()*colors.length)
+            ];
+
+        firework.appendChild(spark);
+
     }
 
+    document.body.appendChild(firework);
 
-    /* =========================
-       NO BUTTON - RUN AWAY
-       ========================= */
+    setTimeout(()=>{
+        firework.remove();
+    },1200);
 
-    const noButton = document.getElementById("noButton");
-
-    function moveNoButton() {
-
-      const container = document.querySelector(".container");
-
-      const maxX = Math.max(
-        20,
-        container.clientWidth - noButton.offsetWidth - 20
-      );
-
-      const maxY = Math.max(
-        20,
-        container.clientHeight - noButton.offsetHeight - 20
-      );
-
-      const randomX =
-        Math.floor(Math.random() * maxX) - (maxX / 2);
-
-      const randomY =
-        Math.floor(Math.random() * maxY) - (maxY / 2);
-
-      noButton.style.position = "fixed";
-
-      noButton.style.left =
-        Math.max(
-          10,
-          Math.min(window.innerWidth - noButton.offsetWidth - 10,
-          window.innerWidth / 2 + randomX)
-        ) + "px";
-
-      noButton.style.top =
-        Math.max(
-          10,
-          Math.min(window.innerHeight - noButton.offsetHeight - 10,
-          window.innerHeight / 2 + randomY)
-        ) + "px";
-    }
+}
 
 
-    /* Desktop */
-    noButton.addEventListener("mouseenter", moveNoButton);
+function startFireworks(){
 
-    /* Mobile touch */
-    noButton.addEventListener("touchstart", function(event) {
-      event.preventDefault();
-      moveNoButton();
-    });
+    let count=0;
 
-    /* Extra protection */
-    noButton.addEventListener("click", function(event) {
-      event.preventDefault();
-      moveNoButton();
-    });
+    const interval=setInterval(()=>{
+
+        const x=
+            70+
+            Math.random()*
+            (window.innerWidth-140);
+
+        const y=
+            80+
+            Math.random()*
+            (window.innerHeight*.45);
+
+        createFirework(x,y);
+
+        count++;
+
+        if(count>=14){
+
+            clearInterval(interval);
+
+        }
+
+    },450);
+
+}
 
 
-    /* Make NO button return to normal when leaving page 3 */
-    function resetNoButton() {
-      noButton.style.position = "relative";
-      noButton.style.left = "";
-      noButton.style.top = "";
-    }
+/* ================= KEYBOARD ================= */
 
+document.addEventListener("keydown",function(e){
 
-    /* Keyboard support */
-    document.addEventListener("keydown", function(event) {
+    if(e.key==="ArrowRight"){
 
-      if (event.key === "ArrowRight") {
         nextPage();
-      }
 
-      if (event.key === "ArrowLeft") {
+    }
+
+    if(e.key==="ArrowLeft"){
+
         prevPage();
-      }
 
-    });
+    }
 
-  </script>
+});
+
+</script>
 
 </body>
   </html>
