@@ -2,1131 +2,925 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Abdullah's Birthday ♡</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abdullah's Birthday 🎂</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap');
-
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html,body{
+    width:100%;
+    min-height:100%;
+    font-family:Arial, sans-serif;
+    overflow-x:hidden;
 }
 
 body{
-  min-height:100vh;
-  overflow:hidden;
-  font-family:'DM Sans',sans-serif;
-  color:#fff7f8;
-  background:
-    radial-gradient(circle at 15% 15%,#8e4d55 0%,transparent 28%),
-    radial-gradient(circle at 85% 80%,#6b303d 0%,transparent 30%),
-    linear-gradient(135deg,#241317,#482126,#32181e);
-}
-
-/* ---------- BACKGROUND ---------- */
-
-.bg{
-  position:fixed;
-  inset:0;
-  overflow:hidden;
-  pointer-events:none;
-}
-
-.blob{
-  position:absolute;
-  border-radius:50%;
-  filter:blur(45px);
-  opacity:.28;
-}
-
-.b1{
-  width:230px;
-  height:230px;
-  background:#d87991;
-  left:-80px;
-  top:-60px;
-}
-
-.b2{
-  width:260px;
-  height:260px;
-  background:#a75b4e;
-  right:-100px;
-  bottom:-70px;
+    background:
+        radial-gradient(circle at top left, #a85c72 0%, transparent 38%),
+        radial-gradient(circle at bottom right, #4b1f25 0%, transparent 45%),
+        linear-gradient(135deg,#713744,#32151b);
+    color:#fff;
 }
 
 /* ---------- MAIN ---------- */
 
-.wrapper{
-  height:100vh;
-  width:100%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:18px;
+.screen{
+    min-height:100vh;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:22px;
 }
 
-.page{
-  display:none;
-  width:100%;
-  max-width:520px;
-  animation:show .55s ease;
-}
-
-.page.active{
-  display:block;
-}
-
-@keyframes show{
-  from{
-    opacity:0;
-    transform:translateY(18px) scale(.97);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0) scale(1);
-  }
+.screen.active{
+    display:flex;
 }
 
 .card{
-  padding:40px 24px 28px;
-  text-align:center;
-  border-radius:30px;
-  background:rgba(73,35,39,.68);
-  border:1px solid rgba(255,194,207,.22);
-  box-shadow:0 25px 70px rgba(0,0,0,.45);
-  backdrop-filter:blur(18px);
-  -webkit-backdrop-filter:blur(18px);
+    width:100%;
+    max-width:650px;
+    min-height:550px;
+    padding:45px 35px 30px;
+    border-radius:32px;
+    border:1px solid rgba(255,190,205,.35);
+    background:rgba(54,20,26,.72);
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.35),
+        inset 0 1px 0 rgba(255,255,255,.08);
+    backdrop-filter:blur(14px);
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    position:relative;
 }
 
 /* ---------- TEXT ---------- */
 
-.kicker{
-  font-size:12px;
-  letter-spacing:4px;
-  text-transform:uppercase;
-  color:#f2a8b9;
-  margin-bottom:18px;
-}
-
-h1,h2{
-  font-family:'Playfair Display',serif;
+.small-title{
+    font-size:14px;
+    letter-spacing:5px;
+    color:#f4a8bd;
+    margin-bottom:35px;
 }
 
 h1{
-  font-size:42px;
-  line-height:1.15;
-  margin-bottom:18px;
+    font-family:Georgia,serif;
+    font-size:48px;
+    line-height:1.15;
+    margin-bottom:25px;
 }
 
 h2{
-  font-size:29px;
-  margin-bottom:18px;
+    font-family:Georgia,serif;
+    font-size:36px;
+    margin-bottom:22px;
 }
 
 p{
-  font-size:17px;
-  line-height:1.75;
-  color:#f8e9ec;
-  margin-bottom:20px;
+    font-size:20px;
+    line-height:1.9;
+    color:#f9e9ed;
 }
 
-.name{
-  color:#ffb4c5;
-  text-shadow:0 0 18px rgba(255,145,170,.3);
+.highlight{
+    color:#ffabc1;
+    font-weight:bold;
 }
 
 /* ---------- BUTTONS ---------- */
 
 button{
-  border:0;
-  outline:0;
-  font-family:'DM Sans',sans-serif;
-  cursor:pointer;
-  -webkit-tap-highlight-color:transparent;
+    border:none;
+    outline:none;
+    cursor:pointer;
+    font-size:18px;
+    font-weight:bold;
+    transition:.25s ease;
 }
 
-.start,
-.next,
-.yes{
-  padding:14px 30px;
-  border-radius:50px;
-  background:#f3a6b8;
-  color:#35151b;
-  font-size:16px;
-  font-weight:700;
-  box-shadow:0 9px 25px rgba(0,0,0,.3);
-  transition:.2s;
+.main-btn{
+    margin:30px auto 0;
+    padding:17px 42px;
+    border-radius:50px;
+    background:#f7a2ba;
+    color:#3b1820;
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
 }
 
-.start:hover,
-.next:hover,
-.yes:hover{
-  transform:translateY(-3px);
+.main-btn:hover{
+    transform:scale(1.05);
 }
 
-.start:active,
-.next:active,
-.yes:active{
-  transform:scale(.95);
+.main-btn:active{
+    transform:scale(.96);
 }
 
-.prev{
-  background:transparent;
-  color:#dcaeb8;
-  font-size:14px;
-  padding:10px;
-}
+/* ---------- NAVIGATION ---------- */
 
 .nav{
-  margin-top:30px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:8px;
+    position:absolute;
+    bottom:22px;
+    left:35px;
+    right:35px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 }
 
-.number{
-  color:#b78e97;
-  font-size:12px;
+.nav button{
+    background:transparent;
+    color:#eab8c5;
+    font-size:17px;
+    padding:10px 4px;
 }
 
-/* ---------- CAKE ---------- */
-
-.cake{
-  font-size:68px;
-  animation:bounce 1.8s infinite;
-  margin-bottom:15px;
+.nav .next-btn{
+    background:#f5a2ba;
+    color:#35161d;
+    padding:16px 30px;
+    border-radius:45px;
 }
 
-@keyframes bounce{
-  0%,100%{
-    transform:translateY(0);
-  }
-  50%{
-    transform:translateY(-9px);
-  }
+.nav .next-btn:hover{
+    transform:scale(1.04);
 }
 
 /* ---------- LOADING ---------- */
 
-.loading-title{
-  font-size:29px;
-  margin-bottom:25px;
+.loading-card{
+    min-height:400px;
+}
+
+.loader-title{
+    font-family:Georgia,serif;
+    font-size:34px;
+    margin-bottom:30px;
 }
 
 .progress-box{
-  width:100%;
-  height:13px;
-  background:#32191e;
-  border-radius:20px;
-  overflow:hidden;
-  margin:25px 0 12px;
-  border:1px solid rgba(255,255,255,.12);
+    width:100%;
+    height:14px;
+    background:rgba(255,255,255,.15);
+    border-radius:20px;
+    overflow:hidden;
 }
 
-.progress{
-  width:0%;
-  height:100%;
-  border-radius:20px;
-  background:linear-gradient(90deg,#d76d87,#ffb2c2);
-  transition:width .05s linear;
+.progress-bar{
+    width:0%;
+    height:100%;
+    background:#f5a2ba;
+    border-radius:20px;
 }
 
 .percent{
-  font-size:16px;
-  color:#ffb6c7;
-  font-weight:700;
-}
-
-/* ---------- QUESTION ---------- */
-
-.question{
-  font-size:16px;
-  line-height:1.8;
-}
-
-.question b{
-  color:#ffb2c3;
-}
-
-.gold{
-  color:#f5c1ca;
-  font-weight:700;
-}
-
-.choice{
-  position:relative;
-  height:90px;
-  margin-top:10px;
-}
-
-.yes{
-  position:absolute;
-  left:50%;
-  top:20px;
-  transform:translateX(-50%);
-  background:#ffb1c2;
-}
-
-/* ---------- NO BUTTON ---------- */
-
-#noBtn{
-  display:none;
-  position:fixed;
-  z-index:9999;
-  padding:12px 25px;
-  border-radius:50px;
-  background:#6d313d;
-  border:2px solid #f2a1b4;
-  color:#fff;
-  font-size:15px;
-  font-weight:700;
-  box-shadow:0 7px 22px rgba(0,0,0,.45);
-  transition:
-    left .18s ease,
-    top .18s ease;
-  white-space:nowrap;
-}
-
-/* ---------- FINAL ---------- */
-
-.final-title{
-  font-family:'Playfair Display',serif;
-  font-size:30px;
-  color:#f3a7b8;
-  margin-bottom:15px;
-}
-
-.coder{
-  font-family:'Playfair Display',serif;
-  font-size:34px;
-  line-height:1.4;
-  color:#fff;
-}
-
-.coder span{
-  color:#ffafc1;
-}
-
-.signature{
-  margin-top:18px;
-  font-size:12px;
-  letter-spacing:3px;
-  color:#b88993;
+    margin-top:18px;
+    font-size:24px;
+    font-weight:bold;
+    color:#ffb2c7;
 }
 
 /* ---------- FIREWORKS ---------- */
 
 .firework{
-  position:fixed;
-  z-index:5000;
-  pointer-events:none;
-}
-
-.spark{
-  position:absolute;
-  width:5px;
-  height:5px;
-  border-radius:50%;
-  animation:explode 1.1s ease-out forwards;
+    position:fixed;
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#ffd4df;
+    pointer-events:none;
+    z-index:20;
+    animation:explode 1.2s ease-out forwards;
 }
 
 @keyframes explode{
-  0%{
-    transform:translate(0,0) scale(1);
-    opacity:1;
-  }
+    0%{
+        opacity:1;
+        transform:scale(1);
+    }
 
-  100%{
-    transform:translate(var(--x),var(--y)) scale(.1);
-    opacity:0;
-  }
+    100%{
+        opacity:0;
+        transform:scale(16);
+        box-shadow:
+        30px 0 #ffabc1,
+        -30px 0 #ffd5df,
+        0 30px #f7a2ba,
+        0 -30px #fff;
+    }
+}
+
+/* ---------- THOKO PAGE ---------- */
+
+.thoko-card{
+    min-height:650px;
+}
+
+.thoko-card p{
+    margin-bottom:24px;
+}
+
+/* YES + NO initially together */
+
+.choice-area{
+    position:relative;
+    width:100%;
+    height:95px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:30px;
+    margin-top:15px;
+}
+
+.choice-btn{
+    min-width:180px;
+    padding:17px 30px;
+    border-radius:50px;
+    font-size:20px;
+}
+
+.yes-btn{
+    background:#f6a1b9;
+    color:#35161d;
+    box-shadow:0 10px 25px rgba(0,0,0,.22);
+    z-index:5;
+}
+
+.no-btn{
+    background:#713744;
+    color:#ffd8e1;
+    border:3px solid #f09ab4;
+    box-shadow:0 10px 25px rgba(0,0,0,.22);
+    z-index:10;
+}
+
+.yes-btn:hover{
+    transform:scale(1.05);
+}
+
+/* When NO starts running */
+.no-btn.running{
+    position:fixed;
+    transition:
+        left .25s ease,
+        top .25s ease;
+}
+
+/* ---------- FINAL ---------- */
+
+.final-card{
+    min-height:500px;
+}
+
+.coder{
+    font-family:Georgia,serif;
+    font-size:40px;
+    color:#ffb0c5;
+    margin:20px 0;
+}
+
+.close-text{
+    margin-top:10px;
+    font-size:20px;
 }
 
 /* ---------- MOBILE ---------- */
 
-@media(max-width:480px){
+@media(max-width:600px){
 
-  .card{
-    padding:35px 18px 25px;
-  }
+    .screen{
+        padding:14px;
+    }
 
-  h1{
-    font-size:35px;
-  }
+    .card{
+        min-height:calc(100vh - 28px);
+        border-radius:28px;
+        padding:35px 22px 100px;
+    }
 
-  h2{
-    font-size:26px;
-  }
+    h1{
+        font-size:38px;
+    }
 
-  p,
-  .question{
-    font-size:15.5px;
-  }
+    h2{
+        font-size:30px;
+    }
 
-  .coder{
-    font-size:29px;
-  }
+    p{
+        font-size:18px;
+        line-height:1.8;
+    }
 
-  .start,
-  .next,
-  .yes{
-    padding:13px 27px;
-  }
+    .small-title{
+        font-size:12px;
+        letter-spacing:4px;
+        margin-bottom:28px;
+    }
+
+    .choice-area{
+        gap:12px;
+    }
+
+    .choice-btn{
+        min-width:145px;
+        padding:15px 18px;
+        font-size:18px;
+    }
+
+    .nav{
+        left:22px;
+        right:22px;
+        bottom:18px;
+    }
+
+    .nav .next-btn{
+        padding:14px 24px;
+    }
+
+    .coder{
+        font-size:31px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<div class="bg">
-  <div class="blob b1"></div>
-  <div class="blob b2"></div>
-</div>
+<!-- ================= START PAGE ================= -->
 
-
-<div class="wrapper">
-
-  <!-- ================= PAGE 1 ================= -->
-
-  <section class="page active" id="page1">
-
+<section class="screen active" id="startPage">
     <div class="card">
 
-      <div class="kicker">
-        A little surprise
-      </div>
+        <div class="small-title">A SPECIAL DAY 🎂</div>
 
-      <h1>
-        Something is<br>
-        waiting for you ♡
-      </h1>
+        <h1>Someone's Birthday... 👀</h1>
 
-      <p>
-        Just tap the button below<br>
-        and let the surprise begin.
-      </p>
+        <p>
+            There is something special waiting<br>
+            for you, Abdullah. 😌
+        </p>
 
-      <button class="start" onclick="startLoading()">
-        START ✨
-      </button>
+        <button class="main-btn" onclick="startLoading()">
+            START 🎁
+        </button>
 
     </div>
+</section>
 
-  </section>
+
+<!-- ================= LOADING PAGE ================= -->
+
+<section class="screen" id="loadingPage">
+    <div class="card loading-card">
+
+        <div class="loader-title">
+            Preparing something special... 🎂
+        </div>
+
+        <div class="progress-box">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <div class="percent" id="percent">
+            0%
+        </div>
+
+    </div>
+</section>
 
 
-  <!-- ================= LOADING ================= -->
+<!-- ================= PAGE 1 ================= -->
 
-  <section class="page" id="loading">
-
+<section class="screen" id="page1">
     <div class="card">
 
-      <div class="kicker">
-        Preparing your surprise
-      </div>
+        <div class="small-title">A VERY SPECIAL PERSON ✨</div>
 
-      <div class="loading-title">
-        Please wait... ♡
-      </div>
+        <h1>Abdullah</h1>
 
-      <div class="progress-box">
-        <div class="progress" id="progress"></div>
-      </div>
+        <h2>Happy Birthday to You! 🎂🎉</h2>
 
-      <div class="percent" id="percent">
-        0%
-      </div>
+        <p>
+            May your day be filled with happiness,
+            laughter and lots of beautiful memories. ❤️
+        </p>
+
+        <div class="nav">
+            <button onclick="goToPage(1)">← Previous</button>
+
+            <span>1 / 5</span>
+
+            <button class="next-btn" onclick="goToPage(2)">
+                Next →
+            </button>
+        </div>
 
     </div>
+</section>
 
-  </section>
 
+<!-- ================= PAGE 2 ================= -->
 
-  <!-- ================= PAGE 2 ================= -->
-
-  <section class="page" id="page2">
-
+<section class="screen" id="page2">
     <div class="card">
 
-      <div class="cake">
-        🎂
-      </div>
+        <div class="small-title">BIRTHDAY WISHES 💗</div>
 
-      <div class="kicker">
-        Today is your day
-      </div>
+        <h2>Once Again... 🎂</h2>
 
-      <h1>
-        <span class="name">
-          Abdullah
-        </span>
-      </h1>
+        <p>
+            Happy Birthday Abdullah! 🥳
+            <br><br>
 
-      <h2>
-        Happy Birthday to You! 🎉
-      </h2>
+            <span class="highlight">
+                Sorry for wishing you late. 😭
+            </span>
 
-      <p>
-        May your life always be filled with
-        happiness, peace, success and
-        beautiful memories.
-      </p>
+            <br><br>
 
-      <div class="nav">
+            Lekin der se sahi,
+            wish dil se hai. ❤️
+            <br><br>
 
-        <button class="prev" onclick="prevPage()">
-          ← Previous
-        </button>
+            Allah tumhari life ko
+            khushiyon se bhar de. ✨
+        </p>
 
-        <span class="number">
-          1 / 5
-        </span>
+        <div class="nav">
+            <button onclick="goToPage(1)">← Previous</button>
 
-        <button class="next" onclick="nextPage()">
-          Next →
-        </button>
+            <span>2 / 5</span>
 
-      </div>
+            <button class="next-btn" onclick="goToPage(3)">
+                Next →
+            </button>
+        </div>
 
     </div>
+</section>
 
-  </section>
+
+<!-- ================= PAGE 3 — THOKO ================= -->
+
+<section class="screen" id="page3">
+    <div class="card thoko-card">
+
+        <div class="small-title">
+            VERY IMPORTANT QUESTION 👀
+        </div>
+
+        <h2>Ab sach sach batana...</h2>
+
+        <p>
+            Umeed hai tum theek hoge...
+            aur tumhara
+            <span class="highlight">thoko</span> bhi. 😂
+        </p>
+
+        <p>
+            Mujhe ye nahi pata ke tum
+            <span class="highlight">Salman ke thoko</span>
+            ho ya
+            <span class="highlight">Salman tumhara thoko</span>
+            hai. 😭
+        </p>
+
+        <p>
+            Agar tum ye sabit karna chahte ho ke
+            tum dono mein se koi bhi
+            <span class="highlight">thokoo nahi...</span>
+        </p>
+
+        <p>
+            <span class="highlight">
+                Agar dum hai to NO par click karke dikhao.
+            </span>
+            😂
+        </p>
+
+        <!-- YES + NO start together -->
+
+        <div class="choice-area" id="choiceArea">
+
+            <button
+                class="choice-btn yes-btn"
+                onclick="goToPage(4)">
+                YES 😂
+            </button>
+
+            <button
+                class="choice-btn no-btn"
+                id="noButton">
+                NO 😭
+            </button>
+
+        </div>
+
+        <!-- IMPORTANT:
+             No Next button here.
+             Only YES can move forward.
+        -->
+
+        <div class="nav">
+            <button onclick="goToPage(2)">
+                ← Previous
+            </button>
+
+            <span>3 / 5</span>
+
+            <span></span>
+        </div>
+
+    </div>
+</section>
 
 
-  <!-- ================= PAGE 3 ================= -->
+<!-- ================= PAGE 4 ================= -->
 
-  <section class="page" id="page3">
-
+<section class="screen" id="page4">
     <div class="card">
 
-      <div class="kicker">
-        One more thing...
-      </div>
+        <div class="small-title">
+            I KNEW IT 😂
+        </div>
 
-      <h2>
-        Birthday wishes ♡
-      </h2>
+        <h2>Haan mujhe pata tha... 😂</h2>
 
-      <p>
-        Sorry for wishing you late 😭
-        <br><br>
+        <p>
+            Mujhe pehle se hi
+            <span class="highlight">shak tha</span>
+            ke tum dono mein se
+            koi na koi kisi ek ka
+            <span class="highlight">thoko</span> hai. 😂
+        </p>
 
-        Lekin late sahi...
-        wish to dil se hai. ❤️
+        <p>
+            Itni aasani se mujhe
+            bewakoof nahi bana sakte. 😭😂
+        </p>
 
-        <br><br>
+        <div class="nav">
+            <button onclick="goToPage(3)">
+                ← Previous
+            </button>
 
-        Umeed hai tumhara ye naya saal
-        khushiyon, success aur achi memories
-        se full ho.
-      </p>
+            <span>4 / 5</span>
 
-      <div class="nav">
-
-        <button class="prev" onclick="prevPage()">
-          ← Previous
-        </button>
-
-        <span class="number">
-          2 / 5
-        </span>
-
-        <button class="next" onclick="nextPage()">
-          Next →
-        </button>
-
-      </div>
+            <button class="next-btn" onclick="goToPage(5)">
+                Next →
+            </button>
+        </div>
 
     </div>
+</section>
 
-  </section>
 
+<!-- ================= PAGE 5 — FINAL ================= -->
 
-  <!-- ================= PAGE 4 ================= -->
+<section class="screen" id="page5">
+    <div class="card final-card">
 
-  <section class="page" id="page4">
+        <div class="small-title">
+            THAT'S ALL 🎉
+        </div>
 
-    <div class="card">
+        <h2>Made by</h2>
 
-      <div class="kicker">
-        VERY IMPORTANT QUESTION 👀
-      </div>
+        <div class="coder">
+            Hussnain — The Coder 💻
+        </div>
 
-      <h2>
-        Ab sach sach batana...
-      </h2>
+        <p>
+            Hope you enjoyed this little
+            birthday surprise. ❤️
+        </p>
 
-      <p class="question">
+        <p class="close-text">
+            Now you can close this webpage. 👋
+        </p>
 
-        Umeed hai tum theek hoge...
-        aur tumhara <b>thoko</b> bhi. 😂
+        <div class="nav">
+            <button onclick="goToPage(4)">
+                ← Previous
+            </button>
 
-        <br><br>
+            <span>5 / 5</span>
 
-        Mujhe ye nahi pata ke tum
-        <b>Salman ke thoko</b> ho
-        ya <b>Salman tumhara thoko</b> hai. 😭
-
-        <br><br>
-
-        Agar tum ye sabit karna chahte ho
-        ke tum dono mein se koi bhi
-        <b>thokoo nahi</b>...
-
-        <br><br>
-
-        <span class="gold">
-          Agar dum hai to NO par click karke
-          dikhao. 😂
-        </span>
-
-      </p>
-
-      <div class="choice">
-
-        <button
-          class="yes"
-          id="yesBtn"
-          onclick="nextPage()">
-          YES 😂
-        </button>
-
-      </div>
-
-      <div class="nav">
-
-        <button class="prev" onclick="prevPage()">
-          ← Previous
-        </button>
-
-        <span class="number">
-          3 / 5
-        </span>
-
-        <button class="next" onclick="nextPage()">
-          Next →
-        </button>
-
-      </div>
+            <span></span>
+        </div>
 
     </div>
-
-  </section>
-
-
-  <!-- ================= PAGE 5 ================= -->
-
-  <section class="page" id="page5">
-
-    <div class="card">
-
-      <div class="kicker">
-        Okay... I knew it 😂
-      </div>
-
-      <div class="final-title">
-        Haan mujhe pata tha! 😭
-      </div>
-
-      <p>
-        Tum dono mein se koi na koi
-        kisi ek ka <b>thoko</b> hai. 😂
-
-        <br><br>
-
-        Mujhe pehle se shak tha. 👀
-      </p>
-
-      <div class="nav">
-
-        <button class="prev" onclick="prevPage()">
-          ← Previous
-        </button>
-
-        <span class="number">
-          4 / 5
-        </span>
-
-        <button class="next" onclick="nextPage()">
-          Next →
-        </button>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ================= PAGE 6 ================= -->
-
-  <section class="page" id="page6">
-
-    <div class="card">
-
-      <div class="kicker">
-        The End
-      </div>
-
-      <div class="coder">
-        Made by<br>
-        <span>
-          Hussnain — The Coder
-        </span>
-      </div>
-
-      <p>
-        A little code.<br>
-        A little chaos.<br>
-        And one birthday surprise. ✨
-      </p>
-
-      <div class="signature">
-        HUSNAIN • THE CODER
-      </div>
-
-      <div class="nav">
-
-        <button class="prev" onclick="prevPage()">
-          ← Previous
-        </button>
-
-        <span class="number">
-          5 / 5
-        </span>
-
-        <span></span>
-
-      </div>
-
-    </div>
-
-  </section>
-
-</div>
-
-
-<!-- ================= NO BUTTON ================= -->
-
-<button id="noBtn">
-  NO 😭
-</button>
+</section>
 
 
 <script>
 
-/* ==========================================
+/* =====================================================
    PAGE SYSTEM
-========================================== */
+   ===================================================== */
 
-let currentPage = 1;
+let currentPage = 0;
 
-const totalPages = 5;
+const pages = [
+    "page1",
+    "page2",
+    "page3",
+    "page4",
+    "page5"
+];
 
-function showPage(page){
+function hideAllScreens(){
 
-  if(page < 1 || page > totalPages){
-    return;
-  }
-
-  document.querySelectorAll(".page").forEach(function(item){
-    item.classList.remove("active");
-  });
-
-  document.getElementById("page" + page)
-    .classList.add("active");
-
-  currentPage = page;
-
-  const noButton =
-    document.getElementById("noBtn");
-
-  if(page === 4){
-
-    noButton.style.display = "block";
-
-    setTimeout(function(){
-      moveNoRandom();
-    },150);
-
-  }else{
-
-    noButton.style.display = "none";
-
-  }
-
-  window.scrollTo(0,0);
-}
-
-
-function nextPage(){
-
-  if(currentPage < totalPages){
-    showPage(currentPage + 1);
-  }
+    document.querySelectorAll(".screen").forEach(screen => {
+        screen.classList.remove("active");
+    });
 
 }
 
+function goToPage(number){
 
-function prevPage(){
+    if(number < 1 || number > 5){
+        return;
+    }
 
-  if(currentPage > 1){
-    showPage(currentPage - 1);
-  }
+    hideAllScreens();
 
+    document.getElementById(pages[number - 1])
+        .classList.add("active");
+
+    currentPage = number;
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 }
 
 
-/* ==========================================
-   START BUTTON
-   3 SECOND LOADING
-========================================== */
+/* =====================================================
+   START + LOADING
+   ===================================================== */
 
 function startLoading(){
 
-  document.querySelectorAll(".page").forEach(function(item){
-    item.classList.remove("active");
-  });
+    hideAllScreens();
 
-  document.getElementById("loading")
-    .classList.add("active");
+    document.getElementById("loadingPage")
+        .classList.add("active");
 
-  const progress =
-    document.getElementById("progress");
+    let progress = 0;
 
-  const percent =
-    document.getElementById("percent");
+    const bar = document.getElementById("progressBar");
+    const percent = document.getElementById("percent");
 
-  progress.style.width = "0%";
-  percent.innerText = "0%";
+    const duration = 3000;
+    const intervalTime = 30;
 
-  const duration = 3000;
+    const totalSteps = duration / intervalTime;
+    const increment = 100 / totalSteps;
 
-  const startTime = Date.now();
+    const loader = setInterval(() => {
 
-  const timer = setInterval(function(){
+        progress += increment;
 
-    const elapsed =
-      Date.now() - startTime;
+        if(progress >= 100){
 
-    let value =
-      Math.floor((elapsed / duration) * 100);
+            progress = 100;
 
-    if(value > 100){
-      value = 100;
-    }
+            bar.style.width = "100%";
+            percent.innerText = "100%";
 
-    progress.style.width =
-      value + "%";
+            clearInterval(loader);
 
-    percent.innerText =
-      value + "%";
+            setTimeout(() => {
 
-    if(value >= 100){
+                goToPage(1);
 
-      clearInterval(timer);
+                startFireworks();
 
-      setTimeout(function(){
+            },300);
 
-        showPage(2);
+            return;
+        }
 
-        startFireworks();
+        bar.style.width = progress + "%";
+        percent.innerText = Math.floor(progress) + "%";
 
-      },300);
-
-    }
-
-  },30);
-
+    },intervalTime);
 }
 
 
-/* ==========================================
-   NO BUTTON
-   RANDOM + NEARBY MOVEMENT
-========================================== */
+/* =====================================================
+   FIREWORKS
+   ===================================================== */
 
-const noButton =
-  document.getElementById("noBtn");
+function startFireworks(){
+
+    for(let i = 0; i < 18; i++){
+
+        setTimeout(() => {
+
+            const firework = document.createElement("div");
+
+            firework.className = "firework";
+
+            firework.style.left =
+                (10 + Math.random() * 80) + "%";
+
+            firework.style.top =
+                (10 + Math.random() * 55) + "%";
+
+            document.body.appendChild(firework);
+
+            setTimeout(() => {
+                firework.remove();
+            },1300);
+
+        },i * 100);
+    }
+}
 
 
-function moveNoRandom(){
+/* =====================================================
+   NO BUTTON — RANDOM MOVEMENT
+   ===================================================== */
 
-  if(currentPage !== 4){
-    return;
-  }
+const noButton = document.getElementById("noButton");
 
-  const yesButton =
-    document.getElementById("yesBtn");
+let noMoving = false;
 
-  const yesRect =
-    yesButton.getBoundingClientRect();
+function moveNoButton(){
 
-  const buttonWidth =
-    noButton.offsetWidth;
-
-  const buttonHeight =
-    noButton.offsetHeight;
-
-  const gap = 18;
-
-  /*
-    Four nearby zones around YES.
-    Random position every time.
-  */
-
-  const zones = [
-
-    /* LEFT */
-    {
-      x: yesRect.left - buttonWidth - gap,
-      y: yesRect.top + random(-30,40)
-    },
-
-    /* RIGHT */
-    {
-      x: yesRect.right + gap,
-      y: yesRect.top + random(-30,40)
-    },
-
-    /* ABOVE */
-    {
-      x: yesRect.left + random(-45,70),
-      y: yesRect.top - buttonHeight - gap
-    },
-
-    /* BELOW */
-    {
-      x: yesRect.left + random(-45,70),
-      y: yesRect.bottom + gap
+    if(noMoving){
+        return;
     }
 
-  ];
+    noMoving = true;
 
-  const chosen =
-    zones[Math.floor(Math.random() * zones.length)];
+    noButton.classList.add("running");
 
-  /*
-    Keep NO completely inside screen.
-  */
+    /*
+       Keep NO reasonably close to the YES button.
+       It will never fly to a completely different
+       corner of the screen.
+    */
 
-  const safeX =
-    Math.max(
-      8,
-      Math.min(
-        window.innerWidth - buttonWidth - 8,
-        chosen.x
-      )
+    const yesButton =
+        document.querySelector(".yes-btn");
+
+    const yesRect =
+        yesButton.getBoundingClientRect();
+
+    const buttonWidth =
+        noButton.offsetWidth;
+
+    const buttonHeight =
+        noButton.offsetHeight;
+
+    const positions = [
+
+        /* right side */
+        {
+            x: yesRect.right + 12,
+            y: yesRect.top
+        },
+
+        /* left side */
+        {
+            x: yesRect.left - buttonWidth - 12,
+            y: yesRect.top
+        },
+
+        /* slightly above */
+        {
+            x: yesRect.left + 20,
+            y: yesRect.top - buttonHeight - 15
+        },
+
+        /* slightly below */
+        {
+            x: yesRect.left + 20,
+            y: yesRect.bottom + 15
+        },
+
+        /* right + slightly down */
+        {
+            x: yesRect.right - 10,
+            y: yesRect.top + 50
+        },
+
+        /* left + slightly up */
+        {
+            x: yesRect.left - buttonWidth + 10,
+            y: yesRect.top - 45
+        }
+
+    ];
+
+    /* Random position */
+
+    let selected =
+        positions[Math.floor(Math.random() * positions.length)];
+
+    /*
+       Keep it inside the screen.
+    */
+
+    const margin = 8;
+
+    selected.x = Math.max(
+        margin,
+        Math.min(
+            selected.x,
+            window.innerWidth - buttonWidth - margin
+        )
     );
 
-  const safeY =
-    Math.max(
-      8,
-      Math.min(
-        window.innerHeight - buttonHeight - 8,
-        chosen.y
-      )
+    selected.y = Math.max(
+        margin,
+        Math.min(
+            selected.y,
+            window.innerHeight - buttonHeight - margin
+        )
     );
 
-  noButton.style.left =
-    safeX + "px";
+    noButton.style.left = selected.x + "px";
+    noButton.style.top = selected.y + "px";
 
-  noButton.style.top =
-    safeY + "px";
-
+    setTimeout(() => {
+        noMoving = false;
+    },260);
 }
 
 
-function random(min,max){
+/* Desktop */
 
-  return Math.floor(
-    Math.random() * (max - min + 1)
-  ) + min;
-
-}
-
-
-/* Desktop mouse */
-
-noButton.addEventListener(
-  "mouseenter",
-  function(){
-    moveNoRandom();
-  }
-);
+noButton.addEventListener("mouseenter", moveNoButton);
 
 
 /* Mobile touch */
 
-noButton.addEventListener(
-  "touchstart",
-  function(event){
+noButton.addEventListener("touchstart", function(e){
 
-    event.preventDefault();
+    e.preventDefault();
 
-    moveNoRandom();
+    moveNoButton();
 
-  },
-  {passive:false}
-);
+}, {passive:false});
 
 
-/* If click somehow happens */
+/* If somehow clicked */
 
-noButton.addEventListener(
-  "click",
-  function(event){
+noButton.addEventListener("click", function(e){
 
-    event.preventDefault();
+    e.preventDefault();
 
-    moveNoRandom();
+    moveNoButton();
 
-  }
-);
+});
 
 
-/* Keep NO in screen after rotation */
+/* =====================================================
+   RESET NO BUTTON WHEN RETURNING TO THOKO PAGE
+   ===================================================== */
 
-window.addEventListener(
-  "resize",
-  function(){
+function resetNoButton(){
 
-    if(currentPage === 4){
-      moveNoRandom();
-    }
+    noMoving = false;
 
-  }
-);
+    noButton.classList.remove("running");
 
-
-/* ==========================================
-   FIREWORKS
-========================================== */
-
-function createFirework(x,y){
-
-  const firework =
-    document.createElement("div");
-
-  firework.className =
-    "firework";
-
-  firework.style.left =
-    x + "px";
-
-  firework.style.top =
-    y + "px";
-
-  const colors = [
-    "#ff9fb5",
-    "#ffd1dc",
-    "#f4a6b8",
-    "#fff0f3",
-    "#e99a7d"
-  ];
-
-  const totalSparks = 32;
-
-  for(let i = 0; i < totalSparks; i++){
-
-    const spark =
-      document.createElement("div");
-
-    spark.className =
-      "spark";
-
-    const angle =
-      (Math.PI * 2 * i) / totalSparks;
-
-    const distance =
-      45 + Math.random() * 100;
-
-    spark.style.setProperty(
-      "--x",
-      Math.cos(angle) * distance + "px"
-    );
-
-    spark.style.setProperty(
-      "--y",
-      Math.sin(angle) * distance + "px"
-    );
-
-    spark.style.background =
-      colors[
-        Math.floor(
-          Math.random() * colors.length
-        )
-      ];
-
-    firework.appendChild(spark);
-
-  }
-
-  document.body.appendChild(firework);
-
-  setTimeout(function(){
-
-    firework.remove();
-
-  },1200);
-
+    noButton.style.left = "";
+    noButton.style.top = "";
 }
 
 
-function startFireworks(){
+/*
+   Detect when page changes back to page 3.
+*/
 
-  let count = 0;
+const originalGoToPage = goToPage;
 
-  const fireworks =
-    setInterval(function(){
+goToPage = function(number){
 
-      const x =
-        50 + Math.random() *
-        (window.innerWidth - 100);
+    originalGoToPage(number);
 
-      const y =
-        60 + Math.random() *
-        (window.innerHeight * 0.45);
+    if(number === 3){
 
-      createFirework(x,y);
+        setTimeout(() => {
+            resetNoButton();
+        },50);
 
-      count++;
-
-      if(count >= 12){
-
-        clearInterval(fireworks);
-
-      }
-
-    },350);
-
-}
-
-
-/* ==========================================
-   KEYBOARD
-========================================== */
-
-document.addEventListener(
-  "keydown",
-  function(event){
-
-    if(event.key === "ArrowRight"){
-      nextPage();
     }
-
-    if(event.key === "ArrowLeft"){
-      prevPage();
-    }
-
-  }
-);
+};
 
 </script>
 
 </body>
-    </html>
+  </html>
