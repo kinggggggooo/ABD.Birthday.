@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Abdullah 🎂</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3, #8e7dff);
+      color: white;
+    }
+
+    /* Background hearts */
+    .heart {
+      position: fixed;
+      bottom: -30px;
+      font-size: 20px;
+      animation: floatUp 7s linear infinite;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+      20% {
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .container {
+      width: 100%;
+      max-width: 500px;
+      height: 100vh;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .page {
+      display: none;
+      width: 100%;
+      text-align: center;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 25px;
+      padding: 35px 22px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    }
+
+    .emoji {
+      font-size: 65px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 18px;
+      line-height: 1.25;
+    }
+
+    h2 {
+      font-size: 26px;
+      margin-bottom: 18px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+
+    .birthday-name {
+      color: #fff;
+      text-shadow: 0 0 15px rgba(255,255,255,0.7);
+    }
+
+    .buttons {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      min-height: 65px;
+      margin-top: 15px;
+    }
+
+    button {
+      border: none;
+      padding: 13px 25px;
+      border-radius: 30px;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .next-btn,
+    .yes-btn {
+      background: white;
+      color: #e94f78;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .next-btn:hover,
+    .yes-btn:hover {
+      transform: scale(1.06);
+    }
+
+    .prev-btn {
+      background: rgba(0, 0, 0, 0.25);
+      color: white;
+    }
+
+    .no-btn {
+      background: #333;
+      color: white;
+      position: relative;
+      z-index: 10;
+    }
+
+    .navigation {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .page-number {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .small-text {
+      font-size: 14px;
+      opacity: 0.8;
+      margin-top: 20px;
+    }
+
+    .made-by {
+      font-size: 35px;
+      font-weight: bold;
+      margin-top: 20px;
+      text-shadow: 0 0 20px rgba(255,255,255,0.6);
+    }
+
+    .cake {
+      font-size: 75px;
+      animation: bounce 1.5s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 30px 18px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      h2 {
+        font-size: 23px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+
+      button {
+        font-size: 15px;
+        padding: 12px 21px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Floating hearts -->
+  <div class="heart" style="left:8%; animation-delay:0s;">❤️</div>
+  <div class="heart" style="left:25%; animation-delay:2s;">💖</div>
+  <div class="heart" style="left:45%; animation-delay:4s;">💕</div>
+  <div class="heart" style="left:65%; animation-delay:1s;">💗</div>
+  <div class="heart" style="left:85%; animation-delay:3s;">❤️</div>
+
+  <div class="container">
+
+    <!-- PAGE 1 -->
+    <section class="page active" id="page1">
+      <div class="card">
+        <div class="emoji">🎁</div>
+
+        <h1>Thanks for opening this link ❤️</h1>
+
+        <p>
+          I have something special waiting for you...
+          <br>
+          Are you ready? 👀
+        </p>
+
+        <button class="next-btn" onclick="nextPage()">
+          Next Page ➜
+        </button>
+
+        <div class="navigation">
+          <span></span>
+          <span class="page-number">1 / 5</span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- PAGE 2 -->
+    <section class="page" id="page2">
+      <div class="card">
+
+        <div class="cake">🎂</div>
+
+        <h1 class="birthday-name">
+          Abdullah
+        </h1>
+
+        <h2>
+          Happy Birthday to You! 🎉
+        </h2>
+
+        <p>
+          May your special day be filled with
+          happiness, smiles and lots of good memories. ❤️
+        </p>
+
+        <div class="navigation">
+          <button class="prev-btn" onclick="prevPage()">
+            ← Previous
+          </button>
+
+          <span class="page-number">2 / 5</span>
+
+          <button class="next-btn" onclick="nextPage()">
+            Next ➜
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- PAGE 3 -->
+    <section class="page" id="page3">
+      <div class="card">
+
+        <div class="emoji">👀😂</div>
+
+        <h2>
+          Ek important sawaal...
+        </h2>
+
+        <p>
+          Umeed hai tum theek hoge...
+          <br><br>
+
+          Aur tumhara <b>thoko</b> bhi... 😂
+          <br><br>
+
+          Mujhe ye nahi pata ke tum
+          <b>Salman ke thoko</b> ho
+          ya <b>Salman tumhara thoko</b> hai. 😭
+          <br><br>
+
+          Agar tum isko galat sabit karna chahte ho
+          ke tum dono mein se koi bhi <b>thoko</b> nahi hai,
+          to neeche <b>NO</b> pe click karo. 👀
+        </p>
+
+        <div class="buttons">
+          <button class="yes-btn" onclick="nextPage()">
+            YES 😂
+          </button>
+
+          <button class="no-btn" id="noButton">
+            NO 😭
+          </button>
+        </div>
+
+        <div class="navigation">
+          <button class="prev-btn" onclick="prevPage()">
+            ← Previous
+          </button>
+
+          <span class="page-number">3 / 5</span>
+
+          <button class="next-btn" onclick="nextPage()">
+            Next ➜
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- PAGE 4 -->
+    <section class="page" id="page4">
+      <div class="card">
+
+        <div class="emoji">😂🤦‍♂️</div>
+
+        <h1>
+          Haan mujhe pata tha! 😭
+        </h1>
+
+        <p>
+          Tum dono mein se koi na koi
+          kisi ek ka <b>thoko</b> hai. 😂
+          <br><br>
+          Mujhe bewakoof samjha tha kya? 👀
+        </p>
+
+        <div class="navigation">
+          <button class="prev-btn" onclick="prevPage()">
+            ← Previous
+          </button>
+
+          <span class="page-number">4 / 5</span>
+
+          <button class="next-btn" onclick="nextPage()">
+            Next ➜
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- PAGE 5 -->
+    <section class="page" id="page5">
+      <div class="card">
+
+        <div class="emoji">💙✨</div>
+
+        <h1>
+          That's all for now! 🎉
+        </h1>
+
+        <div class="made-by">
+          Made by Husna
+        </div>
+
+        <p class="small-text">
+          ❤️ Birthday Special ❤️
+        </p>
+
+        <div class="navigation">
+          <button class="prev-btn" onclick="prevPage()">
+            ← Previous
+          </button>
+
+          <span class="page-number">5 / 5</span>
+
+          <span></span>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+
+  <script>
+    let currentPage = 1;
+    const totalPages = 5;
+
+    function showPage(pageNumber) {
+
+      if (pageNumber < 1 || pageNumber > totalPages) {
+        return;
+      }
+
+      document.querySelectorAll(".page").forEach(page => {
+        page.classList.remove("active");
+      });
+
+      document
+        .getElementById("page" + pageNumber)
+        .classList.add("active");
+
+      currentPage = pageNumber;
+    }
+
+    function nextPage() {
+      if (currentPage < totalPages) {
+        showPage(currentPage + 1);
+      }
+    }
+
+    function prevPage() {
+      if (currentPage > 1) {
+        showPage(currentPage - 1);
+      }
+    }
+
+
+    /* =========================
+       NO BUTTON - RUN AWAY
+       ========================= */
+
+    const noButton = document.getElementById("noButton");
+
+    function moveNoButton() {
+
+      const container = document.querySelector(".container");
+
+      const maxX = Math.max(
+        20,
+        container.clientWidth - noButton.offsetWidth - 20
+      );
+
+      const maxY = Math.max(
+        20,
+        container.clientHeight - noButton.offsetHeight - 20
+      );
+
+      const randomX =
+        Math.floor(Math.random() * maxX) - (maxX / 2);
+
+      const randomY =
+        Math.floor(Math.random() * maxY) - (maxY / 2);
+
+      noButton.style.position = "fixed";
+
+      noButton.style.left =
+        Math.max(
+          10,
+          Math.min(window.innerWidth - noButton.offsetWidth - 10,
+          window.innerWidth / 2 + randomX)
+        ) + "px";
+
+      noButton.style.top =
+        Math.max(
+          10,
+          Math.min(window.innerHeight - noButton.offsetHeight - 10,
+          window.innerHeight / 2 + randomY)
+        ) + "px";
+    }
+
+
+    /* Desktop */
+    noButton.addEventListener("mouseenter", moveNoButton);
+
+    /* Mobile touch */
+    noButton.addEventListener("touchstart", function(event) {
+      event.preventDefault();
+      moveNoButton();
+    });
+
+    /* Extra protection */
+    noButton.addEventListener("click", function(event) {
+      event.preventDefault();
+      moveNoButton();
+    });
+
+
+    /* Make NO button return to normal when leaving page 3 */
+    function resetNoButton() {
+      noButton.style.position = "relative";
+      noButton.style.left = "";
+      noButton.style.top = "";
+    }
+
+
+    /* Keyboard support */
+    document.addEventListener("keydown", function(event) {
+
+      if (event.key === "ArrowRight") {
+        nextPage();
+      }
+
+      if (event.key === "ArrowLeft") {
+        prevPage();
+      }
+
+    });
+
+  </script>
+
+</body>
+  </html>
